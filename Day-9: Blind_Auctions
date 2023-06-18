@@ -1,0 +1,34 @@
+from replit import clear                       #HINT: You can call clear() to clear the output in the console.
+from art import logo
+
+print(logo)                                    # It prints an Ascii logo of a hammer.
+
+
+bids={}
+bidding_finished=False
+bid_amount=0
+
+def highest_bid(biding_record):                 # A function to a check and give largest bid(bid_amount) inside bidding_record
+  for bid in biding_record:
+    bid_amount=biding_record[bid]
+    if bid_amount < biding_record[bid]:
+      bid_amount=biding_record[bid]
+  print(f"The highest bidder is {bid} with amount of ${}")
+
+
+while not bidding_finished:                              # this loop takes in bidder name and bid and check to add more bidders, 
+  bidder_name=input("Name of Bidder: ")                  # finally passes bids into function highest_bid.
+  bid_value=int(input("Bid Value : $"))
+  bids[bidder_name]=bid_value                            # name = key : bid= value
+  should_continue=input("Are there another bidder? Yes or No :").lower()
+  
+  if should_continue=="no":
+    bidding_finished=True
+    highest_bid(bids)
+  
+  elif should_continue=="yes":
+    clear()
+ 
+
+
+  
