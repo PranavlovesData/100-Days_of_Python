@@ -1,0 +1,57 @@
+#from replit import clear
+#add
+def add(n1,n2):
+  return n1+n2
+#sub 
+def sub(n1,n2):
+  return n1-n2
+
+#multiply
+def multiply(n1,n2):
+  return n1*n2
+
+#divide
+def div(n1,n2):
+  return n1/n2
+
+
+operations={"+":add,
+            "-":sub,
+            "*":multiply,
+            "/":div
+          }
+
+def calculations():
+  n1=int(input(" What's the first number?: "))
+  for op in operations:
+    print(op)
+  should_continue=True
+  while should_continue:
+    operator=input("Choose a operator out of above ones:")
+    n2=int(input(" What's the second number?: "))
+    choosen_operations=operations[operator]
+    answer=choosen_operations(n1,n2)
+    print(f"{n1} {operator} {n2} = {answer}")
+    flag=input("should we continue 'Yes' or 'No'?: ").lower()
+    if flag=="yes":
+      num1=answer
+      # operator1=input("Choose a operator out of above ones:")
+      # n3=int(input(" What's the next number?: "))
+      # answer1=choosen_operations(answer,n3)
+      # print(f"{answer} {operator1} {n3} = {answer1}")
+      
+    else:
+      should_continue=False
+     # clear()
+      calculations()
+      
+    
+    
+  
+calculations()
+
+
+#   OR answer=operations[operator](n1,n2)
+# we are storing in answer the function that returns +,-,*,/
+# and passing in n1,n2 to that function.
+
